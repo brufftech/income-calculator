@@ -61,7 +61,11 @@
 	color: #004f3a;
 	/*margin-left: 5.5em;*/
 }
-
+.submit-button {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
 #add-button {
 	background-color: rgba(28,122,12,10);
 	margin-bottom: 2em;
