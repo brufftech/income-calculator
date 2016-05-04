@@ -1,0 +1,72 @@
+/* CSS declarations go here */
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic);
+/* @todo: import this in the <head> */
+
+.container {
+	background-color: #ececec;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.masthead {
+	width: 100%;
+	min-height: 10em;
+	background-color: rgba(28,122,12,1);
+	font-family: "Source Sans Pro", sans-serif;
+	text-align: center;
+	padding: 1em 0.5em 1.5em 0.5em;
+	color: white;
+}
+
+#app-title {
+	font-style: italic;
+	font-weight: light;
+	width: 100%;
+	height: 5em;
+	display: block;
+	background-color: rgba(28,122,12,1);
+	font-family: "Source Sans Pro", sans-serif;
+	color: white;
+}
+
+.form {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.total-sum {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1em 0.5em 1.5em 0.5em;
+}
+
+
+.form-container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 1em;
+}
+
+.form-fields {
+	width: 100%
+	margin: 0 auto;
+}
+
+.intro-text {
+	display: inline-block;
+	font-family: "Source Sans Pro", sans-serif;
+	color: #004f3a;
+	/*margin-left: 5.5em;*/
+}
+
+#add-button {
+	background-color: rgba(28,122,12,10);
+	margin-bottom: 2em;
+}
+
+#add-button:hover {
+	background-color: rgba(28,150,12,1);
+}

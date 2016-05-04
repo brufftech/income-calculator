@@ -1,0 +1,137 @@
+<head>
+  <title>income</title>
+</head>
+
+<body>
+<div class="container">
+  {{> header}}
+  
+  {{> quickIncomeForm}} 
+ 
+  {{> allIncome}}
+</div>      
+</body>
+
+<template name="header">
+	<div class="masthead">	
+		<h1>What's Your Income?</h1>
+		<h2>Find out how much money you earn in a year</h2>
+	</div>
+</template>
+
+
+<template name="quickIncomeForm">
+	<div class="total-sum">
+		<div class="row">
+				<h2>Your annual income:</h2>
+				<h2>$ {{thisTotal}}</h2>
+		</div>
+	</div>
+	<div class="form-container form">
+	
+	{{#autoForm collection="Paychecks" id="newQuickIncomeForm" type="insert"}}
+		<fieldset>
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset4 col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-11 col-xs-offset-1">
+				<legend>Add an Income Source</legend>
+			</div>
+		</div>
+		<div class="form-fields">
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset5 col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-11 col-xs-offset-1">
+				{{> afQuickField name='incomeName'}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset5 col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-11 col-xs-offset-1">
+				<div id="incomeTypeSelect">
+				{{> afQuickField name='incomeType'}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset5 col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-11 col-xs-offset-1">
+				<div id="incomeDetails">
+				{{#if showHourlyFields}}
+					{{> hourlyIncomeDetails}}
+					{{else}}
+						{{#if showSalaryFields}}  
+							{{> salaryIncomeDetails}}
+							{{else}}
+								{{#if showBonusFields}}
+									{{> bonusIncomeDetails}}
+								{{/if}}
+						{{/if}}
+				{{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset5 col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-11 col-xs-offset-1">
+				<h4>Annual income from this source: $ {{thisSubtotal}}</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset7 col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-9 col-xs-offset-3">
+				<button type="submit" class="btn btn-primary" id="add-button">Add This Income</button>
+			</div>
+		</div>
+		</div>
+		</fieldset>
+	{{/autoForm}}
+	</div><!-- form-container form -->
+</template>
+
+<template name="hourlyIncomeDetails">
+	{{> afQuickField name='hourlyIncome'}}			
+	<br />
+</template>
+
+<template name="salaryIncomeDetails">
+	{{> afQuickField name='salaryIncome'}}	
+	<br />
+</template>
+
+<template name="bonusIncomeDetails">
+	{{> afQuickField name='bonusIncome'}}	
+	<br />
+</template>
+
+<template name="durationIncome">
+
+	{{> afQuickField name='incomeDuration.durationFullYear'}}
+	{{#if showDurationFields}}
+		{{> afQuickField name='durationLength'}}
+		{{> afQuickField name='durationFrequency'}}
+	{{/if}}
+	
+		<label for="incomeDuration">Will you receive this income all year?</label><br />
+		<input type="radio"  name="incomeDuration" value="fullYearYes" id="fullYearYes" checked="checked"> Yes<br />
+		<input type="radio" name="incomeDuration" value="fullYearNo" id="fullYearNo" > No<br />
+		
+		{{#if showDurationFields}}
+		<label for="incomeDurationDetails">How long do you expect to receive this income in a year?</label><br />
+		<input type="text" name="incomeDurationDetails"/>
+			<select name="incomeDurationDetailsTime">
+			<option value="week">Weeks</option>
+			<option value="month">Months</option>
+			</select>
+		{{/if}}
+</template>
+
+<template name="newIncomeFrequency">
+	<form>
+		<label for="incomeFrequency">How often you receive this income?</label><br />
+		<input type="radio" name="incomeFrequency" value="weekly">Weekly (1 time each week)<br />
+		<input type="radio" name="incomeFrequency" value="fortnightly">Bi-weekly (1 time every 2 weeks)<br />
+		<input type="radio" name="incomeFrequency" value="bimonthly">Bi-monthly (2 times every month)<br />
+		<input type="radio" name="incomeFrequency" value="monthly">Monthly (1 time each month)<br />
+		<input type="radio" name="incomeFrequency" value="once"> Annually (1 time each year)<br />
+	</form>
+
+</template>
+
+
+<template name="allIncome">
+
+</template>
